@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="DalFacade/DalFacade.csproj" />
+  <Project Path="DalList/DalList.csproj" />
+  <Project Path="DalTest/DalTest.csproj" />
+</Solution>

@@ -1,0 +1,16 @@
+C:\Users\34\source\repos\DotNet2027_5510_6589\bin\Debug\net10.0\DalTest.exe
+C:\Users\34\source\repos\DotNet2027_5510_6589\bin\Debug\net10.0\DalTest.deps.json
+C:\Users\34\source\repos\DotNet2027_5510_6589\bin\Debug\net10.0\DalTest.runtimeconfig.json
+C:\Users\34\source\repos\DotNet2027_5510_6589\bin\Debug\net10.0\DalTest.dll
+C:\Users\34\source\repos\DotNet2027_5510_6589\bin\Debug\net10.0\DalTest.pdb
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.csproj.AssemblyReference.cache
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.AssemblyInfoInputs.cache
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.AssemblyInfo.cs
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.csproj.CoreCompileInputs.cache
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.csproj.Up2Date
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.dll
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\refint\DalTest.dll
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.pdb
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\DalTest.genruntimeconfig.cache
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalTest\obj\Debug\net10.0\ref\DalTest.dll
