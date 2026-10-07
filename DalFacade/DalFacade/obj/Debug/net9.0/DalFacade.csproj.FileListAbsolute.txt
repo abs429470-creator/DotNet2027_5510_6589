@@ -1,0 +1,4 @@
+C:\Users\User\Desktop\שיעורי בית\c#\project\DotNet2027_5510_6589\DalFacade\obj\Debug\net9.0\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\שיעורי בית\c#\project\DotNet2027_5510_6589\DalFacade\obj\Debug\net9.0\DalFacade.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\שיעורי בית\c#\project\DotNet2027_5510_6589\DalFacade\obj\Debug\net9.0\DalFacade.AssemblyInfo.cs
+C:\Users\User\Desktop\שיעורי בית\c#\project\DotNet2027_5510_6589\DalFacade\obj\Debug\net9.0\DalFacade.csproj.CoreCompileInputs.cache

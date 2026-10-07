@@ -1,0 +1,15 @@
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\bin\Debug\net10.0\DalFacade.deps.json
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\bin\Debug\net10.0\DalFacade.dll
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\bin\Debug\net10.0\DalFacade.pdb
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\DalFacade.AssemblyInfoInputs.cache
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\DalFacade.AssemblyInfo.cs
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\DalFacade.csproj.CoreCompileInputs.cache
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\DalFacade.dll
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\refint\DalFacade.dll
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\DalFacade.pdb
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\ref\DalFacade.dll
+C:\Users\34\source\repos\DotNet2027_5510_6589\DalFacade\obj\Debug\net10.0\DalFacade.csproj.Up2Date
+C:\Users\34\source\repos\DotNet2027_5510_6589\bin\Debug\net10.0\DalFacade.deps.json
+C:\Users\34\source\repos\DotNet2027_5510_6589\bin\Debug\net10.0\DalFacade.dll
+C:\Users\34\source\repos\DotNet2027_5510_6589\bin\Debug\net10.0\DalFacade.pdb
