@@ -2,7 +2,7 @@
 // הגדרת תכונת מעטפת  לכל ממשק הקיים בשכבת ה-DAL לקריאה בלבד 
 public interface IDal
 {
-    IAnswer answer { get; },
-    IStudent student { get; },
-    ITestAnswer testAnswer { get; }
+    IAnswer Answer { get; }
+    IStudent Student { get; }
+    ITestAnswer TestAnswer { get;}
 }
