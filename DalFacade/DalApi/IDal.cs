@@ -6,6 +6,5 @@ public interface IDal
     IStudents Student { get; }
     ITestAnswer TestAnswer { get;}
     ITest Test { get;}
-    ITest Test { get; }
     IQuestion question {get;}
 }
