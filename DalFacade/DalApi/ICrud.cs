@@ -1,4 +1,5 @@
 ﻿namespace DalApi;
+//interface for defining CRUD operations for any entity
 public interface ICrud<T>
 {
     int Create(T item); //Creates new entity object in DAL
