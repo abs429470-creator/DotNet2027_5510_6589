@@ -3,6 +3,9 @@
 public interface IDal
 {
     IAnswer Answer { get; }
-    IStudent Student { get; }
+    IStudents Student { get; }
     ITestAnswer TestAnswer { get;}
+    ITest Test { get;}
+    ITest Test { get; }
+    IQuestion question {get;}
 }
