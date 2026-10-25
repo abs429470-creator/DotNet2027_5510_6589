@@ -13,7 +13,8 @@ namespace DO
       int questionId,
       questionType  QuestionType,
       string? content,
-      int isCorect)
+      int isCorect
+    )
     { public question (): this(0, questionType.None, null, 0 ) {} 
 }
       

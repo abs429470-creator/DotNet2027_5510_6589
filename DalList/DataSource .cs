@@ -43,6 +43,15 @@
             }
 
         }
+         internal static class QuestionExamineeConfig
+        {
+            internal const int constStartConfig = 1;
+            private static int startConfig = constStartConfig;
+            internal static int GetNextId()
+            {
+                return startConfig++;
+            }
+        }
     }
 
 }

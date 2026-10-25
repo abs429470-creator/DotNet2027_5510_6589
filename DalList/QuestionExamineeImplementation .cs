@@ -1,5 +1,6 @@
 ﻿using DO;
 using DalApi;
+using Dal;
 namespace DalList;
     
 	internal class QuestionExamineeImplementation : IQuestionExaminee
@@ -7,16 +8,15 @@ namespace DalList;
 		public int Create(QuestionExaminee questionExaminee)
 		{
             QuestionExaminee newQuestionExaminee = new QuestionExaminee()
-            var searchQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.studentId == questionExaminee.studentId &&
-                qe.testId == questionExaminee.testId && 
-                qe.questionId == questionExaminee.questionId);
+            var searchQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.questionExamineeId == questionExaminee.questionExamineeId);
             if (searchQuestionExaminee != null)
             {
                 //לשלוח לעדכון או לזרוק שגיאה?
             }
             else
             {
-                studentId = questionExaminee.studentId,
+                questionExaminee.questionExamineeId = DataSource.QuestionExamineeConfig.GetNextId();    
+            studentId = questionExaminee.studentId,
                 testId = questionExaminee.testId,
                 questionId = questionExaminee.questionId,
                 examineeAnswerId = questionExaminee.examineeAnswerId
@@ -27,9 +27,7 @@ namespace DalList;
 
         public void Delete(QuestionExaminee questionExaminee)
         {
-            var existingQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.studentId == questionExaminee.studentId &&
-                qe.testId == questionExaminee.testId && 
-                qe.questionId == questionExaminee.questionId);
+            var existingQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.questionExamineeId == questionExaminee.questionExamineeId);
             if (existingQuestionExaminee != null)
             {
                 DataSource.questionExaminee.Remove(existingQuestionExaminee);
@@ -42,9 +40,7 @@ namespace DalList;
 
         public QuestionExaminee? Read(int studentId, int testId, int questionId)
         {
-            return DataSource.questionExaminee.FirstOrDefault(qe => qe.studentId == studentId &&
-                qe.testId == testId && 
-                qe.questionId == questionId);
+            return DataSource.questionExaminee.FirstOrDefault(qe => qe.questionExamineeId == questionExaminee.questionExamineeId);
         }
 
         public List<QuestionExaminee> ReadAll()
@@ -54,9 +50,7 @@ namespace DalList;
 
         public void Update(QuestionExaminee updatedQuestionExaminee)
         {
-            var existingQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.studentId == updatedQuestionExaminee.studentId &&
-                qe.testId == updatedQuestionExaminee.testId && 
-                qe.questionId == updatedQuestionExaminee.questionId);
+            var existingQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.questionExamineeId == updatedQuestionExaminee.questionExamineeId);
             if (existingQuestionExaminee != null)
             {
                 DataSource.questionExaminee.Remove(existingQuestionExaminee);

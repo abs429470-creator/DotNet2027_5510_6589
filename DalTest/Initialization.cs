@@ -106,15 +106,32 @@ public static class Initialization
         s_dal.Question.Create(new Question(0, QuestionType.TECHNOLOGY, "איזה רכיב נחשב ל'מוח' של המחשב?", 20));
     }
     
-
-
-        //public static void createQuestionExaminee()
-        //{
-        //    s_dal.QuestionExaminee.Create(new QuestionExaminee(1, 1, 1, 1));
-        //    s_dal.QuestionExaminee.Create(new QuestionExaminee(2, 1, 2, 2));
-        //    s_dal.QuestionExaminee.Create(new QuestionExaminee(3, 1, 3, 3));
-        //    s_dal.QuestionExaminee.Create(new QuestionExaminee(4, 1, 4, 4));
-        //    s_dal.QuestionExaminee.Create(new QuestionExaminee(5, 1, 5, 5));
-        //}
-
+    public static void createQuestionExaminee()
+    {
+        // --- אתחול שאלות למבחנים (לפחות 20 שאלות) ---
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 301111111, 1, 1, 1));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 301111112, 1, 2, 2));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 301111113, 1, 3, 3));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 301111114, 1, 4, 4));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 301111115, 1, 5, 5));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 302222221, 2, 6, 6));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 302222222, 2, 7, 7));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 302222223, 2, 8, 8));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 302222224, 2, 9, 9));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0, 302222225, 2,10 ,10 ));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0,303333331 ,3 ,11 ,11 ));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0 ,303333332 ,3 ,12 ,12 ));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0 ,303333333 ,3 ,13 ,13 ));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0 ,303333334 ,3 ,14 ,14 ));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0 ,303333335 ,3 ,15 ,15 ));
+        s_dal.QuestionExaminee.Create(new QuestionExaminee(0 ,304444441 ,4 ,16 ,16 ));       
+    }
+    public static void Initialize(IDal dal)
+    {
+        s_dal = dal;
+        createTest();
+        createAnswer();
+        createStudent();
+        createQuestion();
+        createQuestionExaminee();
     }

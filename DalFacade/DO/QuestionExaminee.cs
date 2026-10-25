@@ -8,12 +8,13 @@ namespace DO
 {
     public record QuestionExaminee
      (
+        int questionExamineeId,
         int studentId,
         int testId,
         int questionId ,
         int examineeAnswerId
      )
     {
-        public QuestionExaminee() : this(0, 10, 1, 100 ) { }
+        public QuestionExaminee() : this(0,0, 10, 1, 100 ) { }
     }
 }
