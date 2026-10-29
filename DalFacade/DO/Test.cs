@@ -8,12 +8,14 @@ using System.Threading.Tasks;
     namespace DO;
     
         public record Test
-        {
-            public int testId { get; set; }
-            public testType testType { get; set; }
-            public DateTime dateOfTest { get; set; }
-            public int count { get; set; }
+        (
+            int testId ,
+            testType testType ,
+            DateTime dateOfTest ,
+            int count
+        )
+        {   
 
-            public Test(){ }
-        }
+            public Test() : this(0, 0, DateTime.Now, 0) { } 
+}
     

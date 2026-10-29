@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace DO
 {
     public record Answer
-    {
-        public int answerId { get; set; }
-        public int questionId { get; set; }
-        public string? content { get; set; }
-    
-        public Answer() { }
+    (
+         int answerId,
+         int questionId,
+         string? content
+        
+    )
+        {
+        public Answer() : this(0, 0, null) { }
     }
 }

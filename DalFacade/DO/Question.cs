@@ -9,15 +9,18 @@ namespace DO;
 
  
     public record Question
-    {
-    public int questionId { get; set; }
-    public questionType  questionType { get; set; }
-    public string? content { get; set; }
-    public int isCorect { get; set; }
+    (
+    int questionId ,
+     questionType  questionType ,
+    string? content ,
+    int isCorect
+        )
+{
+    public Question() : this(0, 0, null, 0) { }
+
+}
 
 
-
-    public Question() {} 
 
       
-}
+

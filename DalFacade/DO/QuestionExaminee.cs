@@ -7,17 +7,19 @@ using System.Threading.Tasks;
 namespace DO
 {
     public record QuestionExaminee
+    (
+    int questionExamineeId ,
+    int studentId ,
+    int testId ,
+    int questionId ,
+    int examineeAnswerId
+    )
     {
-       public int questionExamineeId { get; set; }
-        public int studentId { get; set; }
-        public int testId { get; set; }
-        public int questionId { get; set; }
-        public int examineeAnswerId { get; set; }
 
 
 
 
-        public QuestionExaminee()  { }
+        public QuestionExaminee() : this(0, 0, 0, 0, 0) { }
 
     }
 }

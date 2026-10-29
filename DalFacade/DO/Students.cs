@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 namespace DO
 {
     public record Students
+    (
+        int studentId ,
+        string? studentName,
+        int testId ,
+        int mark
+    )
     {
-        public int studentId { get; set; }
-        public string? studentName { get; set; }
-        public int testId { get; set; }
-        public int mark { get; set; }
 
-        public Students() { }
+        public Students() : this(0, null, 0, 0) { }
     }
 }
