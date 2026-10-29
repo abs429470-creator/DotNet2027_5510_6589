@@ -1,31 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vNz6euGb8BM=",
-  "success": false,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalTest\\DalTest.csproj",
+  "dgSpecHash": "bGnWjTDP52c=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\34\\Downloads\\DotNet2027_5510_6589-main (1)\\DotNet2027_5510_6589-main\\DalTest\\DalTest.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalList\\DalList.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "projectPath": "C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalTest\\DalTest.csproj",
-      "filePath": "C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalTest\\DalTest.csproj",
-      "libraryId": "C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalList\\DalList.csproj",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalFacade\\DalFacade.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "projectPath": "C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalTest\\DalTest.csproj",
-      "filePath": "C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalTest\\DalTest.csproj",
-      "libraryId": "C:\\Users\\User\\Desktop\\שיעורי בית\\c#\\הפרויקט\\DalFacade\\DalFacade.csproj",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }
