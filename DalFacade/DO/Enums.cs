@@ -5,10 +5,20 @@ namespace DO
 {
     public enum questionType
     {
-        None = 0
+        None,
+        MATH,
+        ENGLISH,
+        GEOGRAPHY,
+        GRAMMAR,
+        TECHNOLOGY
     }
     public enum testType
     {
-        None = 0
+        None,
+        MATH, 
+       ENGLISH, 
+       GEOGRAPHY,
+      GRAMMAR, 
+      TECHNOLOGY
     }
 }

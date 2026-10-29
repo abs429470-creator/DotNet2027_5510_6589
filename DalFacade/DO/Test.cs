@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DO
-{
-    public record Test
-    (
-     int testId,
-     testType testType,
-     DateTime dateOfTest,
-    int count
-     
-        )
-    { public test() : this(0, testType.None, DateTime.Now, 0) { } }
-}
+    namespace DO;
+    
+        public record Test
+        {
+            public int testId { get; set; }
+            public testType testType { get; set; }
+            public DateTime dateOfTest { get; set; }
+            public int count { get; set; }
+
+            public Test(){ }
+        }
+    

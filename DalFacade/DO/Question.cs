@@ -5,17 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DO
-{
+namespace DO;
+
  
-    public record   Question
-    (
-      int questionId,
-      questionType  QuestionType,
-      string? content,
-      int isCorect
-    )
-    { public question (): this(0, questionType.None, null, 0 ) {} 
-}
+    public record Question
+    {
+    public int questionId { get; set; }
+    public questionType  questionType { get; set; }
+    public string? content { get; set; }
+    public int isCorect { get; set; }
+
+
+
+    public Question() {} 
+
       
 }

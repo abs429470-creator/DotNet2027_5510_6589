@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\34\\source\\repos\\DotNet2027_5510_6589\\DalFacade\\DalFacade.csproj": {}
+    "C:\\Users\\34\\Downloads\\DotNet2027_5510_6589-main (1)\\DotNet2027_5510_6589-main\\DalFacade\\DalFacade.csproj": {}
   },
   "projects": {
-    "C:\\Users\\34\\source\\repos\\DotNet2027_5510_6589\\DalFacade\\DalFacade.csproj": {
+    "C:\\Users\\34\\Downloads\\DotNet2027_5510_6589-main (1)\\DotNet2027_5510_6589-main\\DalFacade\\DalFacade.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\34\\source\\repos\\DotNet2027_5510_6589\\DalFacade\\DalFacade.csproj",
+        "projectUniqueName": "C:\\Users\\34\\Downloads\\DotNet2027_5510_6589-main (1)\\DotNet2027_5510_6589-main\\DalFacade\\DalFacade.csproj",
         "projectName": "DalFacade",
-        "projectPath": "C:\\Users\\34\\source\\repos\\DotNet2027_5510_6589\\DalFacade\\DalFacade.csproj",
+        "projectPath": "C:\\Users\\34\\Downloads\\DotNet2027_5510_6589-main (1)\\DotNet2027_5510_6589-main\\DalFacade\\DalFacade.csproj",
         "packagesPath": "C:\\Users\\34\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\34\\source\\repos\\DotNet2027_5510_6589\\DalFacade\\obj\\",
+        "outputPath": "C:\\Users\\34\\Downloads\\DotNet2027_5510_6589-main (1)\\DotNet2027_5510_6589-main\\DalFacade\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\34\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
