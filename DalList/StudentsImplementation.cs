@@ -1,16 +1,21 @@
 ﻿using DO;
 using DalApi;
+using Dal;
 namespace DalList
 {
-    internal class StudetsImplementation : IStudents
-
+    internal class StudentsImplementation : IStudents
     {
-        public int Create(Student student)
+        public int Create(Students student)
         {
-            Student newStudent = student;
-            newStudent.studentId = DataSource.Config.GetNextId();
-            DataSource.students.Add(newStudent);
-            return newsStudent.studentId;
+            var exists = DataSource.students.Any(s => s?.studentId == student.studentId);
+            if (exists)
+            {
+                throw new DalAlreadyExistsException();
+            }
+
+            DataSource.students.Add(student);
+            return student.studentId;
+
         }
 
         public Students? Read(int studentId)
@@ -19,14 +24,14 @@ namespace DalList
           
         }
 
-        public List<Student> ReadAll()
+        public List<Students> ReadAll()
         {
           return DataSource.students.ToList();
         }
 
-        public void Update(Student student)
+        public void Update(Students student)
         {
-            var updatedStudent = DataSource.students.FirstOrDefault(s => s.studentId == Student.studentId);
+            var updatedStudent = DataSource.students.FirstOrDefault(s => s.studentId == student.studentId);
             if (updatedStudent != null)
             {
                 DataSource.students.Remove(updatedStudent);
@@ -34,7 +39,7 @@ namespace DalList
             }
             else
             {
-                throw new KeyNotFoundException($"Student with ID {updatedStudent.studentId} not found.");
+                throw new DalDoesNotExistException();
             }
         }
         public void Delete(int studentId)
@@ -46,7 +51,7 @@ namespace DalList
             }
             else
             {
-                throw new KeyNotFoundException($"Student with ID {studentId} not found.");
+                throw new DalDoesNotExistException();
             }
         }
     }

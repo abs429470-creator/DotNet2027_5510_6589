@@ -1,14 +1,17 @@
 ﻿using DO;
 using DalApi;
- namespace DalList
+using Dal;
+namespace DalList
 {
 
     internal  class TestImplementation:ITest
     {
         public int Create(Test test)
         {
-            Test newTest = test;
-            newTest.testId = DataSource.Config.GetNextId();
+            Test newTest = new Test
+            {
+                testId = DataSource.TestConfig.GetNextId()
+            };
             DataSource.tests.Add(newTest);
             return newTest.testId;
         }
@@ -33,7 +36,7 @@ using DalApi;
              }
             else
             {
-                throw new KeyNotFoundException($"Test with ID {test.testId} not found.");
+                throw new DalDoesNotExistException();
             }
         }
         public void Delete(int testId)

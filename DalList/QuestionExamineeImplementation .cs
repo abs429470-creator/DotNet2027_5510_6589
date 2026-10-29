@@ -1,65 +1,78 @@
 ﻿using DO;
 using DalApi;
 using Dal;
+
 namespace DalList;
-    
-	internal class QuestionExamineeImplementation : IQuestionExaminee
+
+internal class QuestionExamineeImplementation : IQuestionExaminee
+{
+    public int Create(QuestionExaminee questionExaminee)
     {
-		public int Create(QuestionExaminee questionExaminee)
-		{
-            QuestionExaminee newQuestionExaminee = new QuestionExaminee()
-            var searchQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.questionExamineeId == questionExaminee.questionExamineeId);
-            if (searchQuestionExaminee != null)
-            {
-                //לשלוח לעדכון או לזרוק שגיאה?
-            }
-            else
-            {
-                questionExaminee.questionExamineeId = DataSource.QuestionExamineeConfig.GetNextId();    
-            studentId = questionExaminee.studentId,
-                testId = questionExaminee.testId,
-                questionId = questionExaminee.questionId,
-                examineeAnswerId = questionExaminee.examineeAnswerId
-            }
-            DataSource.testAnswer.Add(newQuestionExaminee);
-            return newQuestionExaminee.testId;
+        var searchQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe?.questionExamineeId == questionExaminee.questionExamineeId);
+        if (searchQuestionExaminee != null)
+        {
+            throw new DalInvalidValueException();
         }
 
-        public void Delete(QuestionExaminee questionExaminee)
-        {
-            var existingQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.questionExamineeId == questionExaminee.questionExamineeId);
-            if (existingQuestionExaminee != null)
-            {
-                DataSource.questionExaminee.Remove(existingQuestionExaminee);
-            }
-            else
-            {
-                throw new KeyNotFoundException($"QuestionExaminee with Student ID {questionExaminee.studentId}, Test ID {questionExaminee.testId}, and Question ID {questionExaminee.questionId} not found.");
-            }
-        }
 
-        public QuestionExaminee? Read(int studentId, int testId, int questionId)
-        {
-            return DataSource.questionExaminee.FirstOrDefault(qe => qe.questionExamineeId == questionExaminee.questionExamineeId);
-        }
+        QuestionExaminee newQuestionExaminee = new QuestionExaminee();
+        newQuestionExaminee.questionExamineeId = DataSource.QuestionExamineeConfig.GetNextId();
 
-        public List<QuestionExaminee> ReadAll()
-        {
-            return DataSource.questionExaminee.ToList();
-        }
+        DataSource.questionExaminee.Add(newQuestionExaminee);
+        return newQuestionExaminee.questionExamineeId;
+    }
 
-        public void Update(QuestionExaminee updatedQuestionExaminee)
+    public void Delete(QuestionExaminee questionExaminee)
+    {
+        var existingQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe?.questionExamineeId == questionExaminee.questionExamineeId);
+        if (existingQuestionExaminee != null)
         {
-            var existingQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe.questionExamineeId == updatedQuestionExaminee.questionExamineeId);
-            if (existingQuestionExaminee != null)
-            {
-                DataSource.questionExaminee.Remove(existingQuestionExaminee);
-                DataSource.questionExaminee.Add(updatedQuestionExaminee);
-            }
-            else
-            {
-                throw new KeyNotFoundException($"QuestionExaminee with Student ID {updatedQuestionExaminee.studentId}, Test ID {updatedQuestionExaminee.testId}, and Question ID {updatedQuestionExaminee.questionId} not found.");
-            }
+            DataSource.questionExaminee.Remove(existingQuestionExaminee);
+        }
+        else
+        {
+            throw new DalDoesNotExistException();
+        }
+    }
+
+    public void Delete(int id)
+    {
+        var existingQuestionExaminee = DataSource.questionExaminee  .FirstOrDefault(qe => qe?.questionExamineeId == id);
+        if (existingQuestionExaminee != null)
+        {
+            DataSource.questionExaminee.Remove(existingQuestionExaminee);
+        }
+        else
+        {
+            throw new DalDoesNotExistException();
+        }
+    }
+
+    public QuestionExaminee? Read(int studentId, int testId, int questionId)
+    {
+        return DataSource.questionExaminee.FirstOrDefault(qe => qe?.studentId == studentId && qe?.testId == testId && qe?.questionId == questionId);
+    }
+
+    public QuestionExaminee? Read(int id)
+    {
+        return DataSource.questionExaminee.FirstOrDefault(qe => qe?.questionExamineeId == id);
+    }
+
+    public List<QuestionExaminee> ReadAll()
+    {
+        return DataSource.questionExaminee.Where(qe => qe != null).ToList()!;
+    }
+
+    public void Update(QuestionExaminee updatedQuestionExaminee)
+    {
+        var existingIndex = DataSource.questionExaminee.FindIndex(qe => qe?.questionExamineeId == updatedQuestionExaminee.questionExamineeId);
+        if (existingIndex != -1)
+        {
+            DataSource.questionExaminee[existingIndex] = updatedQuestionExaminee;
+        }
+        else
+        {
+            throw new DalDoesNotExistException();
         }
     }
 }

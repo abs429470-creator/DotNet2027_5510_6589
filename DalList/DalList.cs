@@ -1,9 +1,12 @@
-﻿namespace DalList;
+﻿using DO;
+using DalApi;
+
+namespace DalList;
 public class DalList : IDal
 {
-    public IStudent Student => new StudentImplementation();
-    public IAnswer Answer => new AnswerImplementation();
-    public IQuestionExaminee QuestionExaminee => new QuestionExamineeImplementation();
-    public ITest Test => new TestImplementation();
-    public IQuestion Question => new QuestionImplementation();  
+    public IStudents student => new StudentsImplementation();
+    public IAnswer answer => new AnswersImplementation();
+    public IQuestionExaminee questionExaminee => new QuestionExamineeImplementation();
+    public ITest test => new TestImplementation();
+    public IQuestion question => new QuestionImplementation();
 }

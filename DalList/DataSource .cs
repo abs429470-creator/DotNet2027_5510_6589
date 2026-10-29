@@ -1,15 +1,16 @@
-﻿
-    namespace Dal
+﻿using DO;
+using DalApi;
+namespace Dal
 {
 
     internal static class DataSource
     {
         //רשימה המכילה את הפניות לכל ישות
-        static internal list<students?> students = new list<students?>();
-        static internal list<answer?> answers = new list<answer?>();
-        static internal list<QuestionExaminee?> testAnswer = new list<QuestionExaminee?>();
-        static internal list<question?> questions = new list<question?>();
-        static internal list<test?> tests = new list<test?>();
+        static internal List<Students?> students = new List<Students?>();
+        static internal List<Answer?> answers = new List<Answer?>();
+        static internal List<QuestionExaminee?> questionExaminee = new List<QuestionExaminee?>();
+        static internal List<Question?> questions = new List<Question?>();
+        static internal List<Test?> tests = new List<Test?>();
         //מחלקות פנימיות המגדירות את המיספור הרץ של הישויות שאלה,תשובה ומבחן
         internal static class AnswerConfig
         {

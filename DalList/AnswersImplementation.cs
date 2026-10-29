@@ -1,16 +1,17 @@
 ﻿using DO;
 using DalApi;
+using Dal;
 namespace DalList;
 
-internal class AnswersImplementation : IAnswers
+internal class AnswersImplementation : IAnswer
 {
     public int Create(Answer answer)
     {
         Answer newAnswer = new Answer
         {
-            answerId = DataSource.Config.GetNextId(),
+            answerId = DataSource.AnswerConfig.GetNextId(),
             questionId = answer.questionId,
-            answerContent = answer.answerContent
+            content = answer.content
         };
         DataSource.answers.Add(newAnswer);
         return newAnswer.answerId;
@@ -24,7 +25,7 @@ internal class AnswersImplementation : IAnswers
         }
         else
         {
-            throw new KeyNotFoundException($"Answer with ID {answerId} not found.");
+            throw new DalDoesNotExistException();
         }
     }
     public Answer? Read(int answerId)
@@ -45,7 +46,7 @@ internal class AnswersImplementation : IAnswers
         }
         else
         {
-            throw new KeyNotFoundException($"Answer with ID {updatedAnswer.answerId} not found.");
+            throw new DalDoesNotExistException();
         }
     }
 

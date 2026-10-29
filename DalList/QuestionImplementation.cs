@@ -1,5 +1,6 @@
 ﻿using DO;
 using DalApi;
+using Dal;
 namespace DalList;
 
 internal class QuestionImplementation : IQuestion
@@ -8,10 +9,9 @@ internal class QuestionImplementation : IQuestion
     {
         Question newQuestion = new Question
         {
-            questionId = DataSource.Config.GetNextId(),
-            testId = question.testId,
-            questionContent = question.questionContent
+            questionId = DataSource.QuestionConfig.GetNextId()
         };
+
         DataSource.questions.Add(newQuestion);
         return newQuestion.questionId;
     }
@@ -24,7 +24,7 @@ internal class QuestionImplementation : IQuestion
         }
         else
         {
-            throw new KeyNotFoundException($"Question with ID {questionId} not found.");
+            throw new DalDoesNotExistException();
         }
     }
     public Question? Read(int questionId)
@@ -45,7 +45,7 @@ internal class QuestionImplementation : IQuestion
         }
         else
         {
-            throw new KeyNotFoundException($"Question with ID {updatedQuestion.questionId} not found.");
+            throw new DalDoesNotExistException();
         }
     }
 }
