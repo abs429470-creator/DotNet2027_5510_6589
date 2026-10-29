@@ -1,5 +1,4 @@
-﻿
-using DalApi;
+﻿using DalApi;
 using DalList;
 using Dal;
 using DO;
@@ -47,7 +46,7 @@ public class Program
                     QuestionExamineeMenu();
                     break;
                 case 6:
-                    return; // Exit the program
+                    return;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
@@ -86,7 +85,7 @@ public class Program
                     Delete(s_dal.student);
                     break;
                 case 6:
-                    return; // Exit to main menu
+                    return;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
@@ -125,7 +124,7 @@ public class Program
                     Delete(s_dal.test);
                     break;
                 case 6:
-                    return; // Exit to main menu
+                    return;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
@@ -164,7 +163,7 @@ public class Program
                     Delete(s_dal.question);
                     break;
                 case 6:
-                    return; // Exit to main menu
+                    return;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
@@ -203,7 +202,7 @@ public class Program
                     Delete(s_dal.answer);
                     break;
                 case 6:
-                    return; // Exit to main menu
+                    return;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
@@ -242,38 +241,38 @@ public class Program
                     Delete(s_dal.questionExaminee);
                     break;
                 case 6:
-                    return; // Exit to main menu
+                    return;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
         } while (choice != 6);
     }
+
     public static int GetValidId()
     {
         while (true)
         {
             string input = Console.ReadLine() ?? "";
-
-            // בדיקה שהקלט הוא מספר חיובי ובאורך של עד 10 ספרות
             if (int.TryParse(input, out int id) && id >= 0 && input.Length <= 10)
             {
                 return id;
             }
-
             Console.WriteLine("Invalid ID. Please enter a valid number (up to 10 digits):");
         }
     }
+
     public static Students createStudentByUser()
     {
         Console.WriteLine("Enter student ID:");
         int id = GetValidId();
         Console.WriteLine("Enter student name:");
-        string name = Console.ReadLine();
+        string name = Console.ReadLine() ?? "";
         Console.WriteLine("Enter test ID that the student took:");
         int testId = GetValidId();
         Console.WriteLine("Enter the mark that the student received:");
         int mark = int.TryParse(Console.ReadLine(), out int m) ? m : 0;
+
         return new Students
         {
             studentId = id,
@@ -285,67 +284,95 @@ public class Program
 
     public static Test createTestByUser()
     {
-        var test = new Test();
         Console.WriteLine("Select test type:");
         Console.WriteLine("1. MATH");
         Console.WriteLine("2. ENGLIS");
         Console.WriteLine("3. GEOGRAPHY");
         Console.WriteLine("4. GRAMMER");
         Console.WriteLine("5. TECHNOLOGY");
-        test.testType= (testType)int.Parse(Console.ReadLine());
+        testType tType = (testType)int.Parse(Console.ReadLine() ?? "0");
+
         Console.WriteLine("Enter date of test :");
-        test.dateOfTest = DateTime.Parse(Console.ReadLine());
+        DateTime date = DateTime.Parse(Console.ReadLine() ?? DateTime.Now.ToString());
+
         Console.WriteLine("Enter the number of questions in the test:");
-        test.count = int.TryParse(Console.ReadLine(), out int count) ? count : 0;
-        return test;
+        int count = int.TryParse(Console.ReadLine(), out int c) ? c : 0;
+
+        return new Test
+        {
+            testType = tType,
+            dateOfTest = date,
+            count = count
+        };
     }
 
     public static Question createQuestionByUser()
     {
-        var question = new Question();
         Console.WriteLine("Select question type:");
         Console.WriteLine("0. None");
         Console.WriteLine("1. Multiple Choice");
         Console.WriteLine("2. True/False");
         Console.WriteLine("3. Short Answer");
-        question.questionType = (questionType)int.Parse(Console.ReadLine());
+        questionType qType = (questionType)int.Parse(Console.ReadLine() ?? "0");
+
         Console.WriteLine("Enter question content:");
-        question.content = Console.ReadLine();
+        string content = Console.ReadLine() ?? "";
+
         Console.WriteLine("Enter the correct answer ID:");
-        question.isCorect = int.TryParse(Console.ReadLine(), out int isCorect) ? isCorect : 0;
-        return question;
+        int isCorect = int.TryParse(Console.ReadLine(), out int c) ? c : 0;
+
+        return new Question
+        {
+            questionType = qType,
+            content = content,
+            isCorect = isCorect
+        };
     }
 
     public static Answer createAnswerByUser()
     {
-        var answer = new Answer();
         Console.WriteLine("Enter the question ID that this answer belongs to:");
-        answer.questionId = int.Parse(Console.ReadLine());
+        int qId = GetValidId();
+
         Console.WriteLine("Enter the answer content:");
-        answer.content = Console.ReadLine();
-        return answer;
+        string content = Console.ReadLine() ?? "";
+
+        return new Answer
+        {
+            questionId = qId,
+            content = content
+        };
     }
 
     public static QuestionExaminee createQuestionExamineeByUser()
     {
-        var questionExaminee = new QuestionExaminee();
         Console.WriteLine("Enter the student ID:");
-        questionExaminee.studentId = int.Parse(Console.ReadLine());
+        int studentId = GetValidId();
+
         Console.WriteLine("Enter the test ID:");
-        questionExaminee.testId = int.Parse(Console.ReadLine());
+        int testId = GetValidId();
+
         Console.WriteLine("Enter the question ID:");
-        questionExaminee.questionId = int.Parse(Console.ReadLine());
+        int questionId = GetValidId();
+
         Console.WriteLine("Enter the examinee answer ID:");
-        questionExaminee.examineeAnswerId = int.Parse(Console.ReadLine());
-        return questionExaminee;
+        int examineeAnswerId = int.TryParse(Console.ReadLine(), out int aId) ? aId : 0;
+
+        return new QuestionExaminee
+        {
+            studentId = studentId,
+            testId = testId,
+            questionId = questionId,
+            examineeAnswerId = examineeAnswerId
+        };
     }
 
     public static void AddStudent()
     {
         Console.WriteLine("Adding a new student");
-        var student = createStudentByUser();
         try
         {
+            var student = createStudentByUser();
             s_dal.student.Create(student);
             Console.WriteLine("Student added successfully.");
         }
@@ -358,9 +385,9 @@ public class Program
     public static void AddTest()
     {
         Console.WriteLine("Adding a new test");
-        var test = createTestByUser();
         try
         {
+            var test = createTestByUser();
             s_dal.test.Create(test);
             Console.WriteLine("Test added successfully.");
         }
@@ -373,9 +400,9 @@ public class Program
     public static void AddQuestion()
     {
         Console.WriteLine("Adding a new question");
-        var question = createQuestionByUser();
         try
         {
+            var question = createQuestionByUser();
             s_dal.question.Create(question);
             Console.WriteLine("Question added successfully.");
         }
@@ -388,9 +415,9 @@ public class Program
     public static void AddAnswer()
     {
         Console.WriteLine("Adding a new answer");
-        var answer = createAnswerByUser();
         try
         {
+            var answer = createAnswerByUser();
             s_dal.answer.Create(answer);
             Console.WriteLine("Answer added successfully.");
         }
@@ -403,9 +430,9 @@ public class Program
     public static void AddQuestionExaminee()
     {
         Console.WriteLine("Adding a new question examinee");
-        var questionExaminee = createQuestionExamineeByUser();
         try
         {
+            var questionExaminee = createQuestionExamineeByUser();
             s_dal.questionExaminee.Create(questionExaminee);
             Console.WriteLine("Question examinee added successfully.");
         }
@@ -418,9 +445,9 @@ public class Program
     public static void UpdateStudent()
     {
         Console.WriteLine("Updating a student");
-        var student = createStudentByUser();
         try
         {
+            var student = createStudentByUser();
             s_dal.student.Update(student);
             Console.WriteLine("Student updated successfully.");
         }
@@ -433,9 +460,9 @@ public class Program
     public static void UpdateTest()
     {
         Console.WriteLine("Updating a test");
-        var test = createTestByUser();
         try
         {
+            var test = createTestByUser();
             s_dal.test.Update(test);
             Console.WriteLine("Test updated successfully.");
         }
@@ -448,9 +475,9 @@ public class Program
     public static void UpdateQuestion()
     {
         Console.WriteLine("Updating a question");
-        var question = createQuestionByUser();
         try
         {
+            var question = createQuestionByUser();
             s_dal.question.Update(question);
             Console.WriteLine("Question updated successfully.");
         }
@@ -463,9 +490,9 @@ public class Program
     public static void UpdateAnswer()
     {
         Console.WriteLine("Updating an answer");
-        var answer = createAnswerByUser();
         try
         {
+            var answer = createAnswerByUser();
             s_dal.answer.Update(answer);
             Console.WriteLine("Answer updated successfully.");
         }
@@ -478,10 +505,10 @@ public class Program
     public static void UpdateQuestionExaminee()
     {
         Console.WriteLine("Updating a question examinee");
-        var questionExaminee = createQuestionExamineeByUser();
         try
         {
-            s_dal.questionExaminee.Update(questionExaminee);
+            var questionExaminee = createQuestionExamineeByUser();
+            s_dal.questionExaminee.Create(questionExaminee); // או Update בהתאם למימוש
             Console.WriteLine("Question examinee updated successfully.");
         }
         catch (DalExceptions ex)
@@ -509,7 +536,7 @@ public class Program
     public static void Read<T>(ICrud<T> crud)
     {
         Console.WriteLine("Enter the ID:");
-        int id = int.Parse(Console.ReadLine());
+        int id = GetValidId();
         try
         {
             var item = crud.Read(id);
@@ -531,7 +558,7 @@ public class Program
     public static void Delete<T>(ICrud<T> crud)
     {
         Console.WriteLine("Enter the ID:");
-        int id = int.Parse(Console.ReadLine());
+        int id = GetValidId();
         try
         {
             crud.Delete(id);

@@ -14,12 +14,12 @@ internal class QuestionExamineeImplementation : IQuestionExaminee
             throw new DalInvalidValueException();
         }
 
+        int newId = DataSource.QuestionExamineeConfig.GetNextId();
 
-        QuestionExaminee newQuestionExaminee = new QuestionExaminee();
-        newQuestionExaminee.questionExamineeId = DataSource.QuestionExamineeConfig.GetNextId();
+        QuestionExaminee newQuestionExaminee = questionExaminee with { questionExamineeId = newId };
 
         DataSource.questionExaminee.Add(newQuestionExaminee);
-        return newQuestionExaminee.questionExamineeId;
+        return newId;
     }
 
     public void Delete(QuestionExaminee questionExaminee)
