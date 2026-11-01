@@ -10,7 +10,10 @@ namespace DalList
         {
             Test newTest = new Test
             {
-                testId = DataSource.TestConfig.GetNextId()
+                testId = DataSource.TestConfig.GetNextId(),
+                testType= test.testType,
+                dateOfTest = test.dateOfTest,
+                count=test.count
             };
             DataSource.tests.Add(newTest);
             return newTest.testId;

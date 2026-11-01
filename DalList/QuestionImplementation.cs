@@ -9,7 +9,10 @@ internal class QuestionImplementation : IQuestion
     {
         Question newQuestion = new Question
         {
-            questionId = DataSource.QuestionConfig.GetNextId()
+            questionId = DataSource.QuestionConfig.GetNextId(),
+            questionType = question.questionType,
+            content = question.content,
+            isCorect = question.isCorect
         };
 
         DataSource.questions.Add(newQuestion);
