@@ -5,5 +5,10 @@
     <Nullable>enable</Nullable>
     <RootNamespace />
     <BaseOutputPath>$(SolutionDir)bin\</BaseOutputPath>
-   </PropertyGroup>
+	  <OutputPath>$(SolutionDir)\bin\</OutputPath>
+	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+	  <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+
+  </PropertyGroup>
    </Project>
