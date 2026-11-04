@@ -25,7 +25,7 @@ public static class LogManager
         }
         if (!System.IO.File.Exists(GetLogFilePath()))
         {
-            System.IO.File.Create(GetLogFilePath()).Close();
+            S5ystem.IO.File.Create(GetLogFilePath()).Close();
         }
         //string logFilePath = GetLogFilePath();
         //string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [{projectName}] [{functionName}] {message}";
