@@ -41,40 +41,40 @@ public static class Initialization
 
     public static void createStudent() 
     {
-        // מבחן מזהה 1 (MATH)
-        s_dal.student.Create(new Students{ studentId = 301111111, studentName = "John Smith", testId = 1, mark = 90 });
-        s_dal.student.Create(new Students{ studentId = 301111112, studentName = "Emma Johnson", testId = 1, mark = 85 });
-        s_dal.student.Create(new Students{ studentId = 301111113, studentName = "Michael Brown", testId = 1, mark = 78 });
-        s_dal.student.Create(new Students{ studentId = 301111114, studentName = "Sarah Davis", testId = 1, mark = 92 });
-        s_dal.student.Create(new Students{ studentId = 301111115, studentName = "David Wilson", testId = 1, mark = 88 }   );
+        // מבחן מזהה 10 (MATH)
+        s_dal.student.Create(new Students{ studentId = 301111111, studentName = "John Smith", testId = 10, mark = 90 });
+        s_dal.student.Create(new Students{ studentId = 301111112, studentName = "Emma Johnson", testId = 10, mark = 85 });
+        s_dal.student.Create(new Students{ studentId = 301111113, studentName = "Michael Brown", testId = 10, mark = 78 });
+        s_dal.student.Create(new Students{ studentId = 301111114, studentName = "Sarah Davis", testId = 10, mark = 92 });
+        s_dal.student.Create(new Students{ studentId = 301111115, studentName = "David Wilson", testId = 10, mark = 88 }   );
 
-        // מבחן מזהה 2 (ENGLISH)
-        s_dal.student.Create(new Students{ studentId = 302222221, studentName = "James Miller", testId = 2, mark = 95 });
-        s_dal.student.Create(new Students{ studentId = 302222222, studentName = "Jessica Taylor", testId = 2, mark = 84 });
-        s_dal.student.Create(new Students{ studentId = 302222223, studentName = "Daniel Anderson", testId = 2, mark = 91 });
-        s_dal.student.Create(new Students{ studentId = 302222224, studentName = "Ashley Thomas", testId = 2, mark = 76 });
-        s_dal.student.Create(new Students{ studentId = 302222225, studentName = "Matthew Jackson", testId = 2, mark = 89 });
+        // מבחן מזהה 11 (ENGLISH)
+        s_dal.student.Create(new Students{ studentId = 302222221, studentName = "James Miller", testId = 11, mark = 95 });
+        s_dal.student.Create(new Students{ studentId = 302222222, studentName = "Jessica Taylor", testId = 11, mark = 84 });
+        s_dal.student.Create(new Students{ studentId = 302222223, studentName = "Daniel Anderson", testId = 11, mark = 91 });
+        s_dal.student.Create(new Students{ studentId = 302222224, studentName = "Ashley Thomas", testId = 11, mark = 76 });
+        s_dal.student.Create(new Students{ studentId = 302222225, studentName = "Matthew Jackson", testId = 11, mark = 89 });
 
-        // מבחן מזהה 3 (GEOGRAPHY)
-        s_dal.student.Create(new Students{ studentId = 303333331, studentName = "Joshua White", testId = 3, mark = 82 });
-        s_dal.student.Create(new Students{ studentId = 303333332, studentName = "Amanda Harris", testId = 3, mark = 94 });
-        s_dal.student.Create(new Students{ studentId = 303333333, studentName = "Andrew Martin", testId = 3, mark = 87 });
-        s_dal.student.Create(new Students{ studentId = 303333334, studentName = "Megan Clark", testId = 3, mark = 90 });
-        s_dal.student.Create(new Students{ studentId = 303333335, studentName = "Ryan Lewis", testId = 3, mark = 83 });
+        // מבחן מזהה 12 (GEOGRAPHY)
+        s_dal.student.Create(new Students{ studentId = 303333331, studentName = "Joshua White", testId = 12, mark = 82 });
+        s_dal.student.Create(new Students{ studentId = 303333332, studentName = "Amanda Harris", testId = 12, mark = 94 });
+        s_dal.student.Create(new Students{ studentId = 303333333, studentName = "Andrew Martin", testId = 12, mark = 87 });
+        s_dal.student.Create(new Students{ studentId = 303333334, studentName = "Megan Clark", testId = 12, mark = 90 });
+        s_dal.student.Create(new Students{ studentId = 303333335, studentName = "Ryan Lewis", testId = 12, mark = 83 });
 
-        // מבחן מזהה 4 (GRAMMAR)
-        s_dal.student.Create(new Students{ studentId = 304444441, studentName = "Nicholas Robinson", testId = 4, mark = 86 });
-        s_dal.student.Create(new Students{ studentId = 304444442, studentName = "Nicole Walker", testId = 4, mark = 93 });
-        s_dal.student.Create(new Students{ studentId = 304444443, studentName = "Brandon Young", testId = 4, mark = 79 });
-        s_dal.student.Create(new Students{ studentId = 304444444, studentName = "Samantha Allen", testId = 4, mark = 95 });
-        s_dal.student.Create(new Students{ studentId = 304444445, studentName = "Tyler King", testId = 4, mark = 88 });
+        // מבחן מזהה 13 (GRAMMAR)
+        s_dal.student.Create(new Students{ studentId = 304444441, studentName = "Nicholas Robinson", testId = 13, mark = 86 });
+        s_dal.student.Create(new Students{ studentId = 304444442, studentName = "Nicole Walker", testId = 13, mark = 93 });
+        s_dal.student.Create(new Students{ studentId = 304444443, studentName = "Brandon Young", testId = 13, mark = 79 });
+        s_dal.student.Create(new Students{ studentId = 304444444, studentName = "Samantha Allen", testId = 13, mark = 95 });
+        s_dal.student.Create(new Students{ studentId = 304444445, studentName = "Tyler King", testId = 13, mark = 88 });
 
-        // מבחן מזהה 5 (TECHNOLOGY)
-        s_dal.student.Create(new Students{ studentId = 305555551, studentName = "Justin Wright", testId = 5, mark = 98 });
-        s_dal.student.Create(new Students{ studentId = 305555552, studentName = "Rachel Scott", testId = 5, mark = 91 });
-        s_dal.student.Create(new Students{ studentId = 305555553, studentName = "Christian Green", testId = 5, mark = 84 });
-        s_dal.student.Create(new Students{ studentId = 305555554, studentName = "Lauren Baker", testId = 5, mark = 90 });
-        s_dal.student.Create(new Students{ studentId = 305555555, studentName = "Ethan Adams", testId = 5, mark = 92 });
+        // מבחן מזהה 14 (TECHNOLOGY)
+        s_dal.student.Create(new Students{ studentId = 305555551, studentName = "Justin Wright", testId = 14, mark = 98 });
+        s_dal.student.Create(new Students{ studentId = 305555552, studentName = "Rachel Scott", testId = 14, mark = 91 });
+        s_dal.student.Create(new Students{ studentId = 305555553, studentName = "Christian Green", testId = 14, mark = 84 });
+        s_dal.student.Create(new Students{ studentId = 305555554, studentName = "Lauren Baker", testId = 14, mark = 90 });
+        s_dal.student.Create(new Students{ studentId = 305555555, studentName = "Ethan Adams", testId = 14, mark = 92 });
     }
 
     public static void createQuestion()
@@ -105,26 +105,40 @@ public static class Initialization
     
     public static void createQuestionExaminee()
     {
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 301111111, testId = 1, examineeAnswerId = 1 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 301111112, testId = 1, examineeAnswerId = 2 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 301111113, testId = 1, examineeAnswerId = 3 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 301111114, testId = 1, examineeAnswerId = 4 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 301111115, testId = 1, examineeAnswerId = 5 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 302222221, testId = 1, examineeAnswerId = 6 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 302222222, testId = 1, examineeAnswerId = 7 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 302222223, testId = 1, examineeAnswerId = 8 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 302222224, testId = 1, examineeAnswerId = 9 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 302222225, testId = 1, examineeAnswerId = 10 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 303333331, testId = 1, examineeAnswerId = 11 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 303333332, testId = 1, examineeAnswerId = 12 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 303333333, testId = 1, examineeAnswerId = 13 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 303333334, testId = 1, examineeAnswerId = 14 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 304444441, testId = 1, examineeAnswerId = 15 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 304444442, testId = 1, examineeAnswerId = 15 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 304444443, testId = 1, examineeAnswerId = 16 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 304444444, testId = 1, examineeAnswerId = 17 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 304444445, testId = 1, examineeAnswerId = 18 });
-        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 0, studentId = 305555551, testId = 1, examineeAnswerId = 19  });
+        // מבחן 10 (MATH) — שאלה 1 אצל כל 5 התלמידים
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 1, studentId = 301111111, testId = 10, examineeAnswerId = 100 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 1, studentId = 301111112, testId = 10, examineeAnswerId = 101 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 1, studentId = 301111113, testId = 10, examineeAnswerId = 102 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 1, studentId = 301111114, testId = 10, examineeAnswerId = 103 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 1, studentId = 301111115, testId = 10, examineeAnswerId = 104 });
+
+        // מבחן 11 (ENGLISH) — שאלה 8
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 8, studentId = 302222221, testId = 11, examineeAnswerId = 105 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 8, studentId = 302222222, testId = 11, examineeAnswerId = 106 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 8, studentId = 302222223, testId = 11, examineeAnswerId = 107 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 8, studentId = 302222224, testId = 11, examineeAnswerId = 108 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 8, studentId = 302222225, testId = 11, examineeAnswerId = 109 });
+
+        // מבחן 12 (GEOGRAPHY) — שאלה 11 (נוצרת ב-createQuestion)
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 11, studentId = 303333331, testId = 12, examineeAnswerId = 110 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 11, studentId = 303333332, testId = 12, examineeAnswerId = 111 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 11, studentId = 303333333, testId = 12, examineeAnswerId = 112 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 11, studentId = 303333334, testId = 12, examineeAnswerId = 113 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 11, studentId = 303333335, testId = 12, examineeAnswerId = 114 });
+
+        // מבחן 13 (GRAMMAR) — שאלה 12 (נוצרת ב-createQuestion)
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 12, studentId = 304444441, testId = 13, examineeAnswerId = 115 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 12, studentId = 304444442, testId = 13, examineeAnswerId = 116 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 12, studentId = 304444443, testId = 13, examineeAnswerId = 117 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 12, studentId = 304444444, testId = 13, examineeAnswerId = 118 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 12, studentId = 304444445, testId = 13, examineeAnswerId = 119 });
+
+        // מבחן 14 (TECHNOLOGY) — שאלה 14
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 14, studentId = 305555551, testId = 14, examineeAnswerId = 120 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 14, studentId = 305555552, testId = 14, examineeAnswerId = 121 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 14, studentId = 305555553, testId = 14, examineeAnswerId = 122 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 14, studentId = 305555554, testId = 14, examineeAnswerId = 123 });
+        s_dal.questionExaminee.Create(new QuestionExaminee{ questionId = 14, studentId = 305555555, testId = 14, examineeAnswerId = 124 });
     }
 
    

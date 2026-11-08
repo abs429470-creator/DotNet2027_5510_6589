@@ -284,6 +284,9 @@ public class Program
 
     public static Test createTestByUser()
     {
+        Console.WriteLine("Enter test ID:");
+        int testId = GetValidId();
+
         Console.WriteLine("Select test type:");
         Console.WriteLine("1. MATH");
         Console.WriteLine("2. ENGLIS");
@@ -300,6 +303,7 @@ public class Program
 
         return new Test
         {
+            testId = testId,
             testType = tType,
             dateOfTest = date,
             count = count
@@ -308,6 +312,9 @@ public class Program
 
     public static Question createQuestionByUser()
     {
+        Console.WriteLine("Enter question ID:");
+        int questionId = GetValidId();
+
         Console.WriteLine("Select question type:");
         Console.WriteLine("0. None");
         Console.WriteLine("1. Multiple Choice");
@@ -323,6 +330,7 @@ public class Program
 
         return new Question
         {
+            questionId = questionId,
             questionType = qType,
             content = content,
             isCorect = isCorect
@@ -331,6 +339,9 @@ public class Program
 
     public static Answer createAnswerByUser()
     {
+        Console.WriteLine("Enter answer ID:");
+        int answerId = GetValidId();
+
         Console.WriteLine("Enter the question ID that this answer belongs to:");
         int qId = GetValidId();
 
@@ -339,6 +350,7 @@ public class Program
 
         return new Answer
         {
+            answerId = answerId,
             questionId = qId,
             content = content
         };
@@ -346,6 +358,9 @@ public class Program
 
     public static QuestionExaminee createQuestionExamineeByUser()
     {
+        Console.WriteLine("Enter question examinee ID:");
+        int questionExamineeId = GetValidId();
+
         Console.WriteLine("Enter the student ID:");
         int studentId = GetValidId();
 
@@ -360,6 +375,7 @@ public class Program
 
         return new QuestionExaminee
         {
+            questionExamineeId = questionExamineeId,
             studentId = studentId,
             testId = testId,
             questionId = questionId,
@@ -395,6 +411,10 @@ public class Program
         {
             Console.WriteLine($"Error adding test: {ex.Message}");
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
+        }
     }
 
     public static void AddQuestion()
@@ -409,6 +429,10 @@ public class Program
         catch (DalExceptions ex)
         {
             Console.WriteLine($"Error adding question: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
         }
     }
 
@@ -425,6 +449,10 @@ public class Program
         {
             Console.WriteLine($"Error adding answer: {ex.Message}");
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
+        }
     }
 
     public static void AddQuestionExaminee()
@@ -439,6 +467,10 @@ public class Program
         catch (DalExceptions ex)
         {
             Console.WriteLine($"Error adding question examinee: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
         }
     }
 
@@ -455,6 +487,10 @@ public class Program
         {
             Console.WriteLine($"Error updating student: {ex.Message}");
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
+        }
     }
 
     public static void UpdateTest()
@@ -470,6 +506,10 @@ public class Program
         {
             Console.WriteLine($"Error updating test: {ex.Message}");
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
+        }
     }
 
     public static void UpdateQuestion()
@@ -484,6 +524,10 @@ public class Program
         catch (DalExceptions ex)
         {
             Console.WriteLine($"Error updating question: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
         }
     }
 
@@ -508,12 +552,16 @@ public class Program
         try
         {
             var questionExaminee = createQuestionExamineeByUser();
-            s_dal.questionExaminee.Create(questionExaminee); // או Update בהתאם למימוש
+            s_dal.questionExaminee.Update(questionExaminee);
             Console.WriteLine("Question examinee updated successfully.");
         }
         catch (DalExceptions ex)
         {
             Console.WriteLine($"Error updating question examinee: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
         }
     }
 
@@ -553,6 +601,10 @@ public class Program
         {
             Console.WriteLine($"Error reading item: {ex.Message}");
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
+        }
     }
 
     public static void Delete<T>(ICrud<T> crud)
@@ -567,6 +619,10 @@ public class Program
         catch (DalExceptions ex)
         {
             Console.WriteLine($"Error deleting item: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unexpected error: {ex.Message}");
         }
     }
 }

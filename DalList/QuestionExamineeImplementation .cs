@@ -8,10 +8,14 @@ internal class QuestionExamineeImplementation : IQuestionExaminee
 {
     public int Create(QuestionExaminee questionExaminee)
     {
-        var searchQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe?.questionExamineeId == questionExaminee.questionExamineeId);
-        if (searchQuestionExaminee != null)
+        var exists = DataSource.questionExaminee.Any(qe =>
+            qe != null
+            && qe.studentId == questionExaminee.studentId
+            && qe.testId == questionExaminee.testId
+            && qe.questionId == questionExaminee.questionId);
+        if (exists)
         {
-            throw new DalInvalidValueException();
+            throw new DalAlreadyExistsException();
         }
 
         int newId = DataSource.QuestionExamineeConfig.GetNextId();

@@ -34,7 +34,7 @@ namespace DalList
             var index = DataSource.tests.FindIndex(t => t.testId == test.testId);
             if (index != -1)
             {
-                DataSource.tests.Remove(test);
+                DataSource.tests.RemoveAt(index);
                 DataSource.tests.Add(test);
              }
             else
