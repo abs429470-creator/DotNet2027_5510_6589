@@ -82,8 +82,28 @@ internal class QuestionImplementation : IQuestion
 
         return question;
     }
+    public Question? Read(Func<Question, bool> filter)
+    {
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Read",
+            "Start"
+        );
 
-    public List<Question> ReadAll()
+        if (filter == null)
+            throw new ArgumentNullException(nameof(filter));
+
+        var result = DataSource.questions.FirstOrDefault(qe => qe != null && filter(qe));
+
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Read",
+            "End"
+        );
+
+        return result;
+    }
+    public List<Question> ReadAll(Func<Question, bool>? filter = null)
     {
         Tools.LogManager.Log(
             MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
@@ -91,15 +111,17 @@ internal class QuestionImplementation : IQuestion
             "Start"
         );
 
-        var list = DataSource.questions.ToList();
+        var result = filter == null
+            ? DataSource.questions.ToList()
+            : DataSource.questions.Where(filter).ToList();
 
         Tools.LogManager.Log(
             MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
             MethodBase.GetCurrentMethod()?.Name ?? "ReadAll",
-            $"End: returned {list.Count} items"
+            "End"
         );
 
-        return list;
+        return result;
     }
 
     public void Update(Question updatedQuestion)

@@ -42,35 +42,7 @@ internal class QuestionExamineeImplementation : IQuestionExaminee
         return newId;
     }
 
-    public void Delete(QuestionExaminee questionExaminee)
-    {
-        Tools.LogManager.Log(
-            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-            MethodBase.GetCurrentMethod()?.Name ?? "Delete",
-            $"Start: questionExamineeId={questionExaminee.questionExamineeId}"
-        );
-
-        var existingQuestionExaminee = DataSource.questionExaminee.FirstOrDefault(qe => qe?.questionExamineeId == questionExaminee.questionExamineeId);
-        if (existingQuestionExaminee != null)
-        {
-            DataSource.questionExaminee.Remove(existingQuestionExaminee);
-            Tools.LogManager.Log(
-                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                MethodBase.GetCurrentMethod()?.Name ?? "Delete",
-                $"End: successfully deleted questionExamineeId={questionExaminee.questionExamineeId}"
-            );
-        }
-        else
-        {
-            Tools.LogManager.Log(
-                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                MethodBase.GetCurrentMethod()?.Name ?? "Delete",
-                $"Error: questionExamineeId={questionExaminee.questionExamineeId} does not exist"
-            );
-            throw new DalDoesNotExistException();
-        }
-    }
-
+   
     public void Delete(int id)
     {
         Tools.LogManager.Log(
@@ -100,25 +72,7 @@ internal class QuestionExamineeImplementation : IQuestionExaminee
         }
     }
 
-    public QuestionExaminee? Read(int studentId, int testId, int questionId)
-    {
-        Tools.LogManager.Log(
-            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-            MethodBase.GetCurrentMethod()?.Name ?? "Read",
-            $"Start: studentId={studentId}, testId={testId}, questionId={questionId}"
-        );
-
-        var result = DataSource.questionExaminee.FirstOrDefault(qe => qe?.studentId == studentId && qe?.testId == testId && qe?.questionId == questionId);
-
-        Tools.LogManager.Log(
-            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-            MethodBase.GetCurrentMethod()?.Name ?? "Read",
-            "End: read executed"
-        );
-
-        return result;
-    }
-
+  
     public QuestionExaminee? Read(int id)
     {
         Tools.LogManager.Log(
@@ -137,8 +91,29 @@ internal class QuestionExamineeImplementation : IQuestionExaminee
 
         return result;
     }
+    public QuestionExaminee? Read(Func<QuestionExaminee, bool> filter)
+    {
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Read",
+            "Start"
+        );
 
-    public List<QuestionExaminee> ReadAll()
+        if (filter == null)
+            throw new ArgumentNullException(nameof(filter));
+
+        var result = DataSource.questionExaminee.FirstOrDefault(qe => qe != null && filter(qe));
+
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Read",
+            "End"
+        );
+
+        return result;
+    }
+
+    public List<QuestionExaminee> ReadAll(Func<QuestionExaminee, bool>? filter = null)
     {
         Tools.LogManager.Log(
             MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
@@ -146,16 +121,19 @@ internal class QuestionExamineeImplementation : IQuestionExaminee
             "Start"
         );
 
-        var list = DataSource.questionExaminee.Where(qe => qe != null).ToList()!;
+        var result = filter == null
+            ? DataSource.questionExaminee.ToList()
+            : DataSource.questionExaminee.Where(filter).ToList();
 
         Tools.LogManager.Log(
             MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
             MethodBase.GetCurrentMethod()?.Name ?? "ReadAll",
-            $"End: returned {list.Count} items"
+            "End"
         );
 
-        return list;
+        return result;
     }
+
 
     public void Update(QuestionExaminee updatedQuestionExaminee)
     {

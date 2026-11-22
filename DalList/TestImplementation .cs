@@ -53,7 +53,8 @@ namespace DalList
             return test;
         }
 
-        public List<Test> ReadAll()
+
+        public List<Test> ReadAll(Func<Test, bool>? filter = null)
         {
             Tools.LogManager.Log(
                 MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
@@ -61,16 +62,19 @@ namespace DalList
                 "Start"
             );
 
-            var list = DataSource.tests.Where(t => t != null).ToList()!;
+            var result = filter == null
+                ? DataSource.tests.ToList()
+                : DataSource.tests.Where(filter).ToList();
 
             Tools.LogManager.Log(
                 MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
                 MethodBase.GetCurrentMethod()?.Name ?? "ReadAll",
-                $"End: returned {list.Count} items"
+                "End"
             );
 
-            return list;
+            return result;
         }
+
 
         public void Update(Test test)
         {

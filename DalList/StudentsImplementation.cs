@@ -56,8 +56,28 @@ namespace DalList
 
             return student;
         }
+        public Students? Read(Func<Students, bool> filter)
+        {
+            Tools.LogManager.Log(
+                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+                MethodBase.GetCurrentMethod()?.Name ?? "Read",
+                "Start"
+            );
 
-        public List<Students> ReadAll()
+            if (filter == null)
+                throw new ArgumentNullException(nameof(filter));
+
+            var result = DataSource.students.FirstOrDefault(qe => qe != null && filter(qe));
+
+            Tools.LogManager.Log(
+                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+                MethodBase.GetCurrentMethod()?.Name ?? "Read",
+                "End"
+            );
+
+            return result;
+        }
+        public List<Students> ReadAll(Func<Students, bool>? filter = null)
         {
             Tools.LogManager.Log(
                 MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
@@ -65,15 +85,17 @@ namespace DalList
                 "Start"
             );
 
-            var list = DataSource.students.Where(s => s != null).ToList()!;
+            var result = filter == null
+                ? DataSource.students.ToList()
+                : DataSource.students.Where(filter).ToList();
 
             Tools.LogManager.Log(
                 MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
                 MethodBase.GetCurrentMethod()?.Name ?? "ReadAll",
-                $"End: returned {list.Count} items"
+                "End"
             );
 
-            return list;
+            return result;
         }
 
         public void Update(Students student)
