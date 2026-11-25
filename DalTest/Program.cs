@@ -1,20 +1,18 @@
 ﻿using DalApi;
-using DalList;
-using Dal;
 using DO;
 using Tools;
 using System.Reflection;
-
+using Dal;
 
 namespace DalTest;
 
 public class Program
 {
-    private static readonly IDal s_dal = new DalList.DalList();
+    private static readonly IDal s_dal = DalApi.Factory.Get; 
 
     static void Main(string[] args)
     {
-        Initialization.Initialize(s_dal);
+        Initialization.Initialize();
         MainMenu();
     }
 

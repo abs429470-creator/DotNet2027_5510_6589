@@ -4,7 +4,7 @@ using Dal;
 using System.Reflection;
 using Tools;
 
-namespace DalList;
+namespace Dal;
 
 internal class QuestionImplementation : IQuestion
 {

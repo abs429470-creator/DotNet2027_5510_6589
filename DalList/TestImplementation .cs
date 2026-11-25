@@ -4,136 +4,140 @@ using Dal;
 using System.Reflection;
 using Tools;
 
-namespace DalList
+namespace Dal;
+
+internal class TestImplementation : ITest
 {
-    internal class TestImplementation : ITest
+    public int Create(Test test)
     {
-        public int Create(Test test)
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Create",
+            $"Start: testType={test.testType}"
+        );
+
+        Test newTest = new Test
         {
-            Tools.LogManager.Log(
-                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                MethodBase.GetCurrentMethod()?.Name ?? "Create",
-                $"Start: testType={test.testType}"
-            );
+            testId = DataSource.TestConfig.GetNextId(),
+            testType = test.testType,
+            dateOfTest = test.dateOfTest,
+            count = test.count
+        };
+        DataSource.tests.Add(newTest);
 
-            Test newTest = new Test
-            {
-                testId = DataSource.TestConfig.GetNextId(),
-                testType = test.testType,
-                dateOfTest = test.dateOfTest,
-                count = test.count
-            };
-            DataSource.tests.Add(newTest);
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Create",
+            $"End: created testId={newTest.testId}"
+        );
 
-            Tools.LogManager.Log(
-                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                MethodBase.GetCurrentMethod()?.Name ?? "Create",
-                $"End: created testId={newTest.testId}"
-            );
+        return newTest.testId;
+    }
 
-            return newTest.testId;
-        }
+    public Test? Read(int testId)
+    {
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Read",
+            $"Start: testId={testId}"
+        );
 
-        public Test? Read(int testId)
+        var test = DataSource.tests.FirstOrDefault(t => t?.testId == testId);
+
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Read",
+            $"End: read executed for testId={testId}"
+        );
+
+        return test;
+    }
+
+
+    public List<Test> ReadAll(Func<Test, bool>? filter = null)
+    {
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "ReadAll",
+            "Start"
+        );
+
+        var result = filter == null
+            ? DataSource.tests.ToList()
+            : DataSource.tests.Where(filter).ToList();
+
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "ReadAll",
+            "End"
+        );
+
+        return result;
+    }
+
+
+    public void Update(Test test)
+    {
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Update",
+            $"Start: testId={test.testId}"
+        );
+
+        var index = DataSource.tests.FindIndex(t => t?.testId == test.testId);
+        if (index != -1)
         {
-            Tools.LogManager.Log(
-                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                MethodBase.GetCurrentMethod()?.Name ?? "Read",
-                $"Start: testId={testId}"
-            );
-
-            var test = DataSource.tests.FirstOrDefault(t => t?.testId == testId);
+            DataSource.tests.RemoveAt(index);
+            DataSource.tests.Add(test);
 
             Tools.LogManager.Log(
                 MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                MethodBase.GetCurrentMethod()?.Name ?? "Read",
-                $"End: read executed for testId={testId}"
+                MethodBase.GetCurrentMethod()?.Name ?? "Update",
+                $"End: successfully updated testId={test.testId}"
             );
-
-            return test;
         }
-
-
-        public List<Test> ReadAll(Func<Test, bool>? filter = null)
-        {
-            Tools.LogManager.Log(
-                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                MethodBase.GetCurrentMethod()?.Name ?? "ReadAll",
-                "Start"
-            );
-
-            var result = filter == null
-                ? DataSource.tests.ToList()
-                : DataSource.tests.Where(filter).ToList();
-
-            Tools.LogManager.Log(
-                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                MethodBase.GetCurrentMethod()?.Name ?? "ReadAll",
-                "End"
-            );
-
-            return result;
-        }
-
-
-        public void Update(Test test)
+        else
         {
             Tools.LogManager.Log(
                 MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
                 MethodBase.GetCurrentMethod()?.Name ?? "Update",
-                $"Start: testId={test.testId}"
+                $"Error: testId={test.testId} does not exist"
             );
-
-            var index = DataSource.tests.FindIndex(t => t?.testId == test.testId);
-            if (index != -1)
-            {
-                DataSource.tests.RemoveAt(index);
-                DataSource.tests.Add(test);
-
-                Tools.LogManager.Log(
-                    MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                    MethodBase.GetCurrentMethod()?.Name ?? "Update",
-                    $"End: successfully updated testId={test.testId}"
-                );
-            }
-            else
-            {
-                Tools.LogManager.Log(
-                    MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                    MethodBase.GetCurrentMethod()?.Name ?? "Update",
-                    $"Error: testId={test.testId} does not exist"
-                );
-                throw new DalDoesNotExistException();
-            }
+            throw new DalDoesNotExistException();
         }
+    }
 
-        public void Delete(int testId)
+    public void Delete(int testId)
+    {
+        Tools.LogManager.Log(
+            MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+            MethodBase.GetCurrentMethod()?.Name ?? "Delete",
+            $"Start: testId={testId}"
+        );
+
+        var test = DataSource.tests.FirstOrDefault(t => t?.testId == testId);
+        if (test != null)
+        {
+            DataSource.tests.Remove(test);
+            Tools.LogManager.Log(
+                MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
+                MethodBase.GetCurrentMethod()?.Name ?? "Delete",
+                $"End: successfully deleted testId={testId}"
+            );
+        }
+        else
         {
             Tools.LogManager.Log(
                 MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
                 MethodBase.GetCurrentMethod()?.Name ?? "Delete",
-                $"Start: testId={testId}"
+                $"Error: testId={testId} does not exist"
             );
-
-            var test = DataSource.tests.FirstOrDefault(t => t?.testId == testId);
-            if (test != null)
-            {
-                DataSource.tests.Remove(test);
-                Tools.LogManager.Log(
-                    MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                    MethodBase.GetCurrentMethod()?.Name ?? "Delete",
-                    $"End: successfully deleted testId={testId}"
-                );
-            }
-            else
-            {
-                Tools.LogManager.Log(
-                    MethodBase.GetCurrentMethod()?.DeclaringType?.FullName ?? "DalList",
-                    MethodBase.GetCurrentMethod()?.Name ?? "Delete",
-                    $"Error: testId={testId} does not exist"
-                );
-                throw new KeyNotFoundException($"Test with ID {testId} not found.");
-            }
+            throw new KeyNotFoundException($"Test with ID {testId} not found.");
         }
+    }
+
+    public Test? Read(Func<Test, bool> filter)
+    {
+        throw new NotImplementedException();
     }
 }

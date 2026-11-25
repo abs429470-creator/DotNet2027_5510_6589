@@ -4,22 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace DO;
+
+public record QuestionExaminee
+(
+int questionExamineeId ,
+int studentId ,
+int testId ,
+int questionId ,
+int examineeAnswerId
+)
 {
-    public record QuestionExaminee
-    (
-    int questionExamineeId ,
-    int studentId ,
-    int testId ,
-    int questionId ,
-    int examineeAnswerId
-    )
-    {
 
 
 
 
-        public QuestionExaminee() : this(0, 0, 0, 0, 0) { }
+    public QuestionExaminee() : this(0, 0, 0, 0, 0) { }
 
-    }
 }

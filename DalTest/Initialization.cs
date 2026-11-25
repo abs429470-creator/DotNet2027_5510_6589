@@ -143,9 +143,9 @@ public static class Initialization
 
    
 
-    public static void Initialize(IDal dal)
+    public static void Initialize()
     {
-        s_dal = dal;
+        s_dal = DalApi.Factory.Get; 
         createTest();
         createAnswer();
         createStudent();

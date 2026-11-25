@@ -1,10 +1,8 @@
-﻿using DO;
+﻿using System.Reflection;
 using DalApi;
-using Dal;
-using System.Reflection;
-using Tools;
+using DO;
 
-namespace DalList;
+namespace Dal;
 
 internal class AnswersImplementation : IAnswer
 {
